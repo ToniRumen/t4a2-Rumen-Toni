@@ -2,6 +2,7 @@ package com.example.t3a3_rumen_toni
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -24,13 +25,37 @@ class LoginActivity : AppCompatActivity() {
 
         binding.botonEntrar.setOnClickListener {
 
-            //Ahora el intent --> Comunicación entre ficheros
+            val campoUsuario = binding.textoUsuario.text.toString()
+            val campoContra = binding.textoContra.text.toString()
 
-            val intent = Intent(this, MainActivity::class.java)
+            //Verificar si el campo "textoUsuario" tiene 8 dígitos
+            if (campoUsuario.matches(Regex("\\d{8}")) && campoContra.isNotEmpty()) {
 
-            intent.putExtra("usuario",binding.textoUsuario.text.toString())
 
-            startActivity(intent)
+                //Ahora el intent --> Comunicación entre ficheros
+
+                val intent = Intent(this, MainActivity::class.java)
+
+                intent.putExtra("usuario",campoUsuario)
+
+                startActivity(intent)
+            } else {
+
+                // Mostrar un mensaje de error
+                if (!campoUsuario.matches(Regex("\\d{8}"))) {
+                    Toast.makeText(this, "El campo usuario debe tener 8 dígitos.", Toast.LENGTH_SHORT).show()
+                }
+                if (campoContra.isEmpty()) {
+                    Toast.makeText(this, "El campo contraseña no puede estar vacío.", Toast.LENGTH_SHORT).show()
+                }
+
+
+            }
+
+
+
+
+
         }
 
         binding.botonSalir.setOnClickListener {

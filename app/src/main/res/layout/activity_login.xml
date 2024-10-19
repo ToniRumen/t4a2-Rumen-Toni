@@ -72,9 +72,10 @@
         >
 
         <com.google.android.material.textfield.TextInputEditText
-            android:inputType="textPassword"
+            android:id="@+id/textoContra"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:inputType="textPassword">
 
 
         </com.google.android.material.textfield.TextInputEditText>
