@@ -37,7 +37,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textSesion"
         app:helperText="@string/obligatorio"
-        app:counterMaxLength="21"
+        app:counterMaxLength="9"
         app:counterEnabled="true"
 
         >

@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">t3a3-Rumen-Toni</string>
+    <string name="inicio">Login</string>
+    <string name="layoutUsuario">Enter username</string>
+    <string name="layoutContra">Enter password</string>
+    <string name="obligatorio">Required</string>
+    <string name="botonEntrar">Login</string>
+    <string name="botonSalir">Logout</string>
+    <string name="bienvenido">Welcome to my bank</string>
+    <string name="entrar">LOGIN</string>
+    <string name="posicion_global">GLOBAL POSITION</string>
+    <string name="transferencias">TRANSFERS</string>
+    <string name="movimientos">TRANSACTIONS</string>
+    <string name="cambiar_contrasena">CHANGE PASSWORD</string>
+    <string name="promociones">PROMOTIONS</string>
+    <string name="cajeros">ATMs</string>
+    <string name="salir">LOGOUT</string>
+</resources>

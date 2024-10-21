@@ -2,12 +2,14 @@ package com.example.t3a3_rumen_toni
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.t3a3_rumen_toni.databinding.ActivityLoginBinding
+import com.google.android.material.snackbar.Snackbar
 
 
 class LoginActivity : AppCompatActivity() {
@@ -21,42 +23,76 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //Evento al pulsar botón "Entrar"
-
-        binding.botonEntrar.setOnClickListener {
-
-            val campoUsuario = binding.textoUsuario.text.toString()
-            val campoContra = binding.textoContra.text.toString()
-
-            //Verificar si el campo "textoUsuario" tiene 8 dígitos
-            if (campoUsuario.matches(Regex("\\d{8}")) && campoContra.isNotEmpty()) {
+        var textoUsuarioCorrecto = false
+        var contraUsuarioCorrecto = false
 
 
-                //Ahora el intent --> Comunicación entre ficheros
+        binding.textoUsuario.onFocusChangeListener = View.OnFocusChangeListener { v, hasFocus ->
 
-                val intent = Intent(this, MainActivity::class.java)
+            //Si pierde el foco
+            if (!hasFocus) {
 
-                intent.putExtra("usuario",campoUsuario)
+                if (!(binding.textoUsuario.text.toString().matches(Regex("\\d{8}[a-zA-Z]")))) {
 
-                startActivity(intent)
-            } else {
+                        Snackbar.make(binding.root, "El campo debe tener 8 números, seguido de una letra.", Snackbar.LENGTH_SHORT)
+                            .setAnchorView(binding.layoutUsuario)
+                            .show()
+                    textoUsuarioCorrecto = false;
 
-                // Mostrar un mensaje de error
-                if (!campoUsuario.matches(Regex("\\d{8}"))) {
-                    Toast.makeText(this, "El campo usuario debe tener 8 dígitos.", Toast.LENGTH_SHORT).show()
+                } else {
+                    textoUsuarioCorrecto = true;
                 }
-                if (campoContra.isEmpty()) {
-                    Toast.makeText(this, "El campo contraseña no puede estar vacío.", Toast.LENGTH_SHORT).show()
-                }
+
+
+
 
 
             }
 
+        }
 
+        binding.textoContra.onFocusChangeListener = View.OnFocusChangeListener { v, hasFocus ->
 
+            if (!hasFocus) {
 
+                if ((binding.textoContra.text.toString()).isEmpty()) {
+
+                    Snackbar.make(binding.root, "La contraseña no puede estar vacía.", Snackbar.LENGTH_SHORT)
+                        .setAnchorView(binding.layoutContra)
+                        .show()
+                    contraUsuarioCorrecto = false
+
+                } else {
+                    contraUsuarioCorrecto = true
+                }
+
+            }
 
         }
+
+            binding.botonEntrar.setOnClickListener(){
+
+                var campoUsuario = binding.textoUsuario.text.toString()
+
+                if (textoUsuarioCorrecto && contraUsuarioCorrecto) {
+
+
+                    //Ahora el intent --> Comunicación entre ficheros
+
+                    val intent = Intent(this, MainActivity::class.java)
+
+                    intent.putExtra("usuario",campoUsuario)
+
+                    startActivity(intent)
+
+
+                }
+
+
+
+
+            }
+
 
         binding.botonSalir.setOnClickListener {
 
@@ -73,5 +109,7 @@ class LoginActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+
     }
 }

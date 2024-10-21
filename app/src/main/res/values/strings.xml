@@ -6,4 +6,13 @@
     <string name="obligatorio">Obligatorio</string>
     <string name="botonEntrar">Entrar</string>
     <string name="botonSalir">Salir</string>
+    <string name="bienvenido">Bienvenido/a a mi banco</string>
+    <string name="entrar">ENTRAR</string>
+    <string name="posicion_global">POSICIÓN GLOBAL</string>
+    <string name="transferencias">TRANSFERENCIAS</string>
+    <string name="movimientos">MOVIMIENTOS</string>
+    <string name="cambiar_contrasena">CAMBIAR CONTRASEÑA</string>
+    <string name="promociones">PROMOCIONES</string>
+    <string name="cajeros">CAJEROS</string>
+    <string name="salir">SALIR</string>
 </resources>
