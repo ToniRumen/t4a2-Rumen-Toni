@@ -39,13 +39,13 @@
         app:helperText="@string/obligatorio"
         app:counterMaxLength="9"
         app:counterEnabled="true"
-
         >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textoUsuario"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
 
 
         </com.google.android.material.textfield.TextInputEditText>
