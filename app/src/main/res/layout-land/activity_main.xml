@@ -199,7 +199,6 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_gravity="bottom"
-        app:backgroundTint="#3F51B5"
         app:navigationIcon="@drawable/baseline_dehaze_24"
         app:fabAlignmentMode="center"
         app:fabAnchorMode="cradle">

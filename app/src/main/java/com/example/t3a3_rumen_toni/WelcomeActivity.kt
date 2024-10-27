@@ -2,10 +2,15 @@ package com.example.t3a3_rumen_toni
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.widget.Button
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.airbnb.lottie.LottieAnimationView
 import com.example.t3a3_rumen_toni.databinding.ActivityWelcomeBinding
 
 class WelcomeActivity : AppCompatActivity() {
@@ -23,7 +28,25 @@ class WelcomeActivity : AppCompatActivity() {
         binding = ActivityWelcomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        var imagen=findViewById<LottieAnimationView>(R.id.animacion)
         //Generar acción botón
+
+
+
+
+
+
+
+        fun animacion(imageView: LottieAnimationView, animacion:Int){
+
+                imageView.setAnimation(animacion)
+                imageView.playAnimation()
+            }
+
+
+
+
+
 
         binding.botonBienvenido.setOnClickListener(){
 
@@ -31,9 +54,21 @@ class WelcomeActivity : AppCompatActivity() {
 
             val intent = Intent(this, LoginActivity::class.java)
 
-            startActivity(intent)
+            //Animación
+            animacion(imagen,R.raw.animacion)
+
+
+
+            // Esperar 3 segundos y luego cambiar de actividad
+            Handler(Looper.getMainLooper()).postDelayed({
+                startActivity(intent) }, 2000)
+
+
 
         }
+
+
+
 
 
 

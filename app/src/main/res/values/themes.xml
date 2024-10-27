@@ -4,7 +4,8 @@
 
         <item name="colorPrimary">@android:color/holo_green_dark</item>
         <item name="bottomAppBarStyle">@style/barraBottom</item>
-        <item name="boxStrokeColor">@android:color/holo_green_dark</item>
+
+
     </style>
 
     <!-- Es necesario un estilo aparte por el parent -->

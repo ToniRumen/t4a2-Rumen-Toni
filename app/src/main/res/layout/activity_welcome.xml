@@ -19,6 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <Button
         android:id="@+id/botonBienvenido"
         android:layout_width="wrap_content"
@@ -32,6 +33,21 @@
 
 
     </Button>
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animacion"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+
+        android:layout_marginTop="256dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </com.airbnb.lottie.LottieAnimationView>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
